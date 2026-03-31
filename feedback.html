@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Savory Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="feedback-page">
+
+    <header>
+        <div class="logo">😋 Savory Cuisine</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="nav-item">Recipe <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="veg.html">Veg</a></li>
+                    <li><a href="non veg.html">Non-Veg</a></li>
+                    <li><a href="dessert.html">Dessert</a></li>
+                </ul>
+            </li>
+            <li><a href="feedback.html" class="nav-item">Feedback</a></li>
+        </ul>
+    </header>
+
+    <main class="feedback-container">
+        <div class="feedback-glass-card">
+            <h1>Spill the Beans! 🍲</h1>
+            <p>How did your dish turn out? We'd love to hear your kitchen secrets.</p>
+
+            <form action="#">
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Chef's name..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Which recipe did you try?</label>
+                    <select>
+                        <option>Sopa Tarasca</option>
+                        <option>Rose Macarons</option>
+                        <option>Chicken Kondattam</option>
+                        <option>Miso Peanut Ramen Bowls</option>
+                        <option>Creamy Rose Pasta</option>
+                        <option>Chocolate Avocado Mousse</option>
+                        <option>Other Deliciousness</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Rate the Flavor</label>
+                    <div class="star-input">
+                        <input type="radio" name="rating" id="star5"><label for="star5">★</label>
+                        <input type="radio" name="rating" id="star4"><label for="star4">★</label>
+                        <input type="radio" name="rating" id="star3"><label for="star3">★</label>
+                        <input type="radio" name="rating" id="star2"><label for="star2">★</label>
+                        <input type="radio" name="rating" id="star1"><label for="star1">★</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Kitchen Notes & Suggestions</label>
+                    <textarea rows="4" placeholder="Any extra spice or tips?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Feedback ✨</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="home-footer">
+        <div class="footer-bottom">
+            <p>© 2026 Savory Cuisine World 🌎</p>
+            <p>Made with 💖 for foodies everywhere 🍕✨</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,932 @@
+/*Root Variables & Reset*/
+:root {
+    --peach: #ffdab9;
+    --soft-pink: #fce4ec;
+    --accent-pink: #f06292;
+    --dark-text: #4a4a4a;
+    --bg-white: #fffaf0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background-color: var(--bg-white);
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: white;
+    height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Bar */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 30px; 
+}
+.nav-links li.dropdown {
+    position: relative; 
+}
+/* Base style for the main links */
+.nav-item {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    position: relative; 
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+/* THE PINK LINE EFFECT */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-pink);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.dropdown:hover > .nav-item::after {
+    width: 100%; 
+}
+
+.nav-item:hover {
+    color: var(--accent-pink);
+}
+
+/* The Dropdown Menu */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 160px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 10px 0;
+    margin-top: 10px;
+    
+    /* Animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Veg, Non-Veg, Dessert Hover Effect */
+.dropdown-content li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--dark-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+/* PINK BACKGROUND ONLY FOR DROPDOWN ITEMS */
+.dropdown-content li a:hover {
+    background-color: #ffe4e8; /* Soft pink background */
+    color: var(--accent-pink);
+    padding-left: 25px; 
+}
+
+.arrow {
+    font-size: 0.6rem;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    min-height: 85vh;
+    position: relative;
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), 
+                url('../images/PIC1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* The Enlarge + Rotate Circle */
+.circle-image {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-image: url('../images/PIC1.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 10px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    z-index: 5;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.circle-image:hover {
+    transform: scale(1.15) rotate(12deg);
+}
+
+/* Chaotic Aesthetic Elements */
+.decorative-blob {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: var(--peach);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    opacity: 0.4;
+    z-index: 1;
+    animation: chaotic-float 8s infinite alternate ease-in-out;
+}
+
+@keyframes chaotic-float {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg) scale(1); }
+    100% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; transform: rotate(15deg) scale(1.1); }
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 50px 8%;
+    min-height: 80vh;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('../images/PIC1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-left {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.circle-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-image: url('../images/PIC1.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 8px solid white;
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.circle-image:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+/* Chaotic elements */
+.decorative-blob {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: var(--peach);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 0.5;
+    animation: morph 10s infinite alternate;
+}
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%; }
+}
+
+.hero-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-right h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 12px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 12px 25px;
+    border: none;
+    background: var(--accent-pink);
+    color: white;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+}
+
+/* Recipe Cards */
+.latest-section {
+    padding: 50px 8%;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Global Typography Update */
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #5d4037; 
+}
+
+/* Recipe Card Enhancements */
+.recipe-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(240, 98, 146, 0.1); /* Soft pink shadow */
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth "pop" effect */
+    cursor: pointer;
+    border: 1px solid var(--soft-pink);
+}
+
+/* 1. THE ENLARGE EFFECT */
+.recipe-card:hover {
+    transform: translateY(-10px) scale(1.05); 
+    box-shadow: 0 20px 40px rgba(240, 98, 146, 0.2);
+    border-color: var(--accent-pink);
+}
+
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+/* 2. BETTER TYPOGRAPHY */
+.recipe-card h3 {
+    font-size: 1.4rem;
+    margin: 10px 0 5px 0;
+    letter-spacing: 0.5px;
+}
+
+/* 3. STAR RATING STYLE */
+.rating {
+    color: #ffb400;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
+}
+
+/* Style for the clickable link inside the card */
+.view-recipe-link {
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: var(--accent-pink);
+    font-weight: 500;
+    margin-top: 10px;
+    
+    /* Hidden by default */
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    
+    /* Ensure only the text is clickable, not the whole line */
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+/* Show the link ONLY when the parent card is hovered */
+.recipe-card:hover .view-recipe-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.view-recipe-link:hover {
+    text-decoration: underline;
+    color: #d81b60; 
+}
+/* Veg/Non-Veg Badges */
+.badge-container {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.diet-icon {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diet-icon::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.veg { border-color: green; }
+.veg::after { background: green; }
+
+.non-veg { border-color: red; }
+.non-veg::after { background: red; }
+
+.rating {
+    color: #ffb400;
+    margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-right h1 { font-size: 2rem; }
+    .nav-links { display: none; } 
+}
+/* 1. SLIDER CORE  */
+.slider-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+input[name="slider"] { display: none; }
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Keeps View Recipe 1 & 3 at the bottom */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 1;
+}
+
+/* FORCE CENTERING FOR THE INFO SLIDE ONLY */
+.slide.info-slide {
+    align-items: center !important; 
+    justify-content: center !important;
+}
+
+#slide1:checked ~ .s1,
+#slide2:checked ~ .s2,
+#slide3:checked ~ .s3 {
+    opacity: 1;
+    z-index: 5;
+}
+
+/* 2. ARROWS & VIEW RECIPE BUTTONS  */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: white;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.nav-arrow:hover { background: rgba(240, 98, 146, 0.7); }
+.left-arrow { left: 0; border-radius: 0 15px 15px 0; }
+.right-arrow { right: 0; border-radius: 15px 0 0 15px; }
+
+.button-container {
+    margin-bottom: 80px; /* Distance for buttons on slides 1 & 3 */
+    z-index: 10;
+}
+
+.view-recipe-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 15px 45px;
+    border: 2px solid white;
+    border-radius: 50px;
+    background: transparent;
+    transition: 0.4s;
+    display: inline-block;
+}
+
+.view-recipe-btn:hover {
+    background-color: var(--accent-pink);
+    border-color: var(--accent-pink);
+}
+
+/* 3. METADATA OVERLAY (The Glass Box) */
+.hero-overlay {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 60px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* 4. ZIG-ZAG STEPS SECTION  */
+.steps-section {
+    padding: 80px 10%;
+    background-color: #fffaf0;
+}
+
+.step-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.step-card.left { flex-direction: row; }
+.step-card.right { flex-direction: row-reverse; }
+
+.step-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    width: 45%;
+}
+
+.step-number {
+    width: 75px;
+    height: 75px;
+    background-color: var(--accent-pink);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0 40px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
+}
+
+.step-card:hover .step-number {
+    transform: scale(1.4);
+    background-color: #d81b60;
+}
+/* --- Chaotic Ingredients Section --- */
+.ingredients-section.chaotic-theme {
+    padding: 80px 10%;
+    background-color: #fffaf0;
+    overflow: hidden;
+    position: relative;
+}
+
+.ingredients-scatter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The "Scrap" of Paper */
+.ing-scrap {
+    background: white;
+    padding: 20px 35px;
+    min-width: 160px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
+    position: relative;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: crosshair;
+}
+
+.ing-scrap p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--dark-text);
+}
+
+.ing-scrap p span {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent-pink);
+}
+
+/* The "Washi Tape" element */
+.tape-piece {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 25px;
+    background: rgba(255, 218, 185, 0.6); /* Peach tape */
+    backdrop-filter: blur(2px);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Random Rotations for the "Chaotic" look */
+.rotate-left { transform: rotate(-3deg); }
+.rotate-right { transform: rotate(4deg); }
+.rotate-slight { transform: rotate(2deg); }
+.rotate-left-deep { transform: rotate(-6deg); }
+.rotate-right-slight { transform: rotate(1deg); }
+
+/* Hover Effect: The scrap "straightens" and lifts */
+.ing-scrap:hover {
+    transform: rotate(0deg) scale(1.1) translateY(-10px);
+    z-index: 10;
+    box-shadow: 10px 15px 30px rgba(240, 98, 146, 0.15);
+}
+
+.ing-scrap:hover .tape-piece {
+    background: var(--accent-pink);
+    opacity: 0.8;
+}
+
+/* Adding some background "splashes" to fill the blank space */
+.ingredients-section::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: var(--peach);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.ingredients-section::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    background: var(--soft-pink);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    z-index: 1;
+}
+/* Makes the stars on the hero slider dance slightly when you hover the glass box */
+.hero-overlay:hover .rating {
+    animation: star-jiggle 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes star-jiggle {
+    0% { transform: rotate(-2deg) scale(1); }
+    100% { transform: rotate(2deg) scale(1.1); }
+}
+/* --- Beautiful & Clean Footer --- */
+.main-footer {
+    background: linear-gradient(to bottom, #ffffff, var(--bg-white));
+    padding: 50px 8% 30px;
+    border-top: 1px solid var(--soft-pink);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-author {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+
+.footer-author span {
+    color: var(--accent-pink);
+    font-weight: 600;
+}
+
+.footer-contact {
+    font-size: 0.95rem;
+    color: #777;
+}
+
+.footer-contact a {
+    color: var(--accent-pink);
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+/* The horizontal line in the middle */
+.footer-divider {
+    height: 1px;
+    width: 60%;
+    background: linear-gradient(to right, transparent, var(--peach), transparent);
+    margin: 20px auto;
+}
+
+.footer-bottom {
+    font-size: 0.85rem;
+    color: #999;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+    .footer-divider { width: 90%; }
+    .footer-author { font-size: 1.1rem; }
+}
+/* Minimal Home Footer */
+.home-footer {
+    padding: 40px 0;
+    text-align: center;
+    background-color: var(--bg-white); 
+    border-top: 1px solid rgba(255, 218, 185, 0.3); 
+    margin-top: 40px;
+}
+
+.home-footer .footer-bottom {
+    font-size: 0.85rem;
+    color: #999;
+    letter-spacing: 1px;
+    line-height: 2; 
+    font-family: 'Poppins', sans-serif;
+}
+/*  Feedback Page Styling */
+.feedback-page {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0e6 100%);
+    min-height: 100vh;
+}
+
+.feedback-container {
+    padding: 100px 8% 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 218, 185, 0.5);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.feedback-glass-card h1 {
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+}
+
+.feedback-glass-card p {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #5d4037;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-pink);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(240, 98, 146, 0.1);
+}
+
+/* Star Rating CSS */
+.star-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+    font-size: 1.5rem;
+}
+
+.star-input input { display: none; }
+.star-input label { color: #ddd; cursor: pointer; transition: 0.2s; }
+
+.star-input input:checked ~ label,
+.star-input label:hover,
+.star-input label:hover ~ label {
+    color: #ffb400;
+}
+
+/* Button Styling */
+.submit-btn {
+    background: var(--accent-pink);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(240, 98, 146, 0.3);
+    background: #d81b60;
+}
+/* --- FINAL MOBILE RESPONSIVENESS PATCH --- */
+
+@media (max-width: 768px) {
+    /* 1. Adjust Hero & Slider */
+    .slider-container {
+        height: 70vh; 
+    }
+
+    .hero-right h1 {
+        font-size: 2.2rem; /* Shrink giant text */
+        text-align: center;
+    }
+
+    .hero-overlay {
+        padding: 20px;
+        width: 90%; /* Take up more width on small screens */
+    }
+
+    /* 2. Fix Zig-Zag Steps (The most important fix) */
+    .step-card, 
+    .step-card.right { 
+        flex-direction: column; /* Stack them vertically instead of side-by-side */
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .step-content {
+        width: 100% !important; /* Take full width */
+        margin-top: 20px;
+    }
+
+    .step-number {
+        margin: 0 auto; /* Center the number circle */
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    /* 3. Ingredients Scatter */
+    .ingredients-scatter {
+        gap: 15px; /* Tighter gap */
+    }
+
+    .ing-scrap {
+        min-width: 140px;
+        padding: 15px;
+    }
+
+    /* 4. Feedback Form */
+    .feedback-glass-card {
+        padding: 25px 20px;
+        margin: 0 10px;
+    }
+
+    /* 5. Navigation Fix */
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* Extra fix for very small phones (under 480px) */
+@media (max-width: 480px) {
+    .recipe-grid {
+        grid-template-columns: 1fr; /* Force cards to be full width */
+    }
+    
+    .circle-image {
+        width: 240px;
+        height: 240px;
+    }
+}

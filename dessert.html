@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savory Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">😋 Savory Cuisine</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="nav-item">Recipe <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <li><a href="veg.html">Veg</a></li>
+                    <li><a href="non veg.html">Non-Veg</a></li>
+                    <li><a href="dessert.html">Dessert</a></li>
+                </ul>
+    </li>
+    <li><a href="feedback.html" class="nav-item">Feedback</a></li>
+</ul>
+    </header>
+<div class="slider-container">
+    <input type="radio" name="slider" id="slide1" checked>
+    <input type="radio" name="slider" id="slide2">
+
+    <div class="slide s1" style="background-image: url('images/PIC1.jpg');">
+        <label for="slide2" class="nav-arrow right-arrow">&#10095;</label>
+        <div class="button-container">
+            <a href="recipe5.html" class="view-recipe-btn">View Recipe 1</a>
+        </div>
+    </div>
+
+    <div class="slide s2" style="background-image: url('images/dessert1.webp');">
+        <label for="slide1" class="nav-arrow left-arrow">&#10094;</label>
+        <div class="button-container">
+            <a href="recipe6.html" class="view-recipe-btn">View Recipe 2</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
